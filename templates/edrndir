@@ -1,0 +1,49 @@
+#!/bin/sh
+#
+# EDRN Directory Service — Supervisor init.d script
+#
+# Starts & stop the EDRN Directory Server's "Supervisor", which in turn
+# controls all the processes necessary to run the EDRN Directory Service.
+#
+# Note that edrn-dir is generated from templates/edrn-dir. Are you editing
+# the right file?
+#
+# Copyright 2012 California Institute of Technology. ALL RIGHTS
+# RESERVED. U.S. Government Sponsorship acknowledged.
+#
+# chkconfig: 345 71 29
+# description: EDRN Directory Service
+
+home=${buildout:directory}
+bin=${dollar}{home}/bin
+supervisord=${dollar}{bin}/supervisord
+supervisorctl=${dollar}{bin}/supervisorctl
+
+case "${dollar}1" in
+start)
+        echo "Starting EDRN Directory Service"
+        ${dollar}supervisord
+        ;;
+stop)
+        echo "Stopping EDRN Directory Service"
+        ${dollar}supervisorctl shutdown
+        ;;
+restart)
+        echo "Restarting EDRN Directory Service"
+        ${dollar}supervisorctl shutdown
+        /bin/sleep 5
+        ${dollar}supervisord
+        ;;
+graceful)
+        echo "Restarting EDRN processes under existing Supervisor"
+        ${dollar}supervisorctl restart all
+        ;;
+status)
+        ${dollar}supervisorctl status
+        ;;
+*)
+        echo "Usage: ${dollar}0 {start|stop|restart|graceful|status}" 1>&2
+        ;;
+esac
+exit 0
+
