@@ -16,7 +16,7 @@ RESERVED. U.S. Government Sponsorship acknowledged.
         instanceId='default'
         replicaId='1'
         workingDirectory='${buildout:directory}/var/edrn.jpl.nasa.gov'
-        allowAnonymousAccess='false'
+        allowAnonymousAccess='true'
         accessControlEnabled='false'
         denormalizeOpAttrsEnabled='false'
         syncPeriodMillis='15000'
@@ -74,9 +74,9 @@ RESERVED. U.S. Government Sponsorship acknowledged.
     <ldapServer
         id='ldapServer'
         allowAnonymousAccess='true'
-        saslHost='edrn.jpl.nasa.gov'
-        saslPrincipal='ldap/edrn.jpl.nasa.gov@edrn.jpl.nasa.gov'
-        searchBaseDn='dc=edrn,dc=jpl,dc=nasa,dc=gov'
+        saslHost='non.existent'
+        saslPrincipal='ldap/non.existent@NO.DOMAIN'
+        searchBaseDn='ou=users,ou=system'
         maxTimeLimit='15000'
         maxSizeLimit='1000'>
         <transports>
@@ -85,15 +85,8 @@ RESERVED. U.S. Government Sponsorship acknowledged.
         <directoryService>#directoryService</directoryService>
         <saslMechanismHandlers>
             <simpleMechanismHandler mech-name='SIMPLE'/>
-            <cramMd5MechanismHandler mech-name='CRAM-MD5'/>
-            <digestMd5MechanismHandler mech-name='DIGEST-MD5'/>
-            <gssapiMechanismHandler mech-name='GSSAPI'/>
         </saslMechanismHandlers>
-        <saslRealms>
-            <s:value>edrn.jpl.nasa.gov</s:value>
-            <s:value>cancer.jpl.nasa.gov</s:value>
-            <s:value>edrn.nci.nih.gov</s:value>
-        </saslRealms>
+        <saslRealms/>
         <extendedOperationHandlers>
             <startTlsHandler/>
             <gracefulShutdownHandler/>
