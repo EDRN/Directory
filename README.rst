@@ -82,7 +82,7 @@ do the following:
 
 8.  Prime the server with data dumped from the previous incarnation::
 
-        ldapadd -x -W -D uid=admin,ou=system -H ldaps://edrn.jpl.nasa.gov -f dump.ldif
+        ldapadd -x -W -D uid=admin,ou=system -H ldap://localhost -f dump.ldif
     
     Replace ``dump.ldif`` with the path to the dump file you made.  When
     prompted, enter the password for the system-dn (set in the ``ops.cfg``
