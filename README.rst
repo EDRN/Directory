@@ -77,8 +77,8 @@ do the following:
 7.  Wait a few moments for the server to start up, then run the following
     commands::
 
-        bin/buildout -Noc ops.cfg install apacheds-admin
-        bin/buildout -Noc ops.cfg install schema
+        bin/buildout -c ops.cfg install apacheds-admin
+        bin/buildout -c ops.cfg install schema
 
 8.  Prime the server with data dumped from the previous incarnation::
 
