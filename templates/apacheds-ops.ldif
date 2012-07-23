@@ -596,7 +596,7 @@ ads-saslmechhandlers: SIMPLE
 ads-extendedophandlers: gracefulShutdownHandler
 ads-extendedophandlers: starttlshandler
 ads-certificatePassword: ${passwords:ldap-certificate-password}
-ads-keystoreFile: ${buildout:directory}/etc/certs/cancer.ks
+ads-keystoreFile: ${:keystore}
 
 dn: ou=replConsumers,ads-serverId=ldapServer,ou=servers,ads-directoryServiceId=default,ou=config
 objectClass: organizationalUnit
