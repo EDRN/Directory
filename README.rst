@@ -46,7 +46,9 @@ the following::
         -b dc=edrn,dc=jpl,dc=nasa,dc=gov -s sub '(objectClass=*)' > dump.ldif
 
 When prompted, provide the password to ``uid=admin,ou=system``.  Save the
-``dump.ldif`` file to a convenient location.
+``dump.ldif`` file to a convenient location.  *Important:* if the entry for
+the dn "dc=edrn,dc=jpl,dc=nasa,dc=gov" isn't at the top of the file, find it
+and move it up top!
 
 Next, after extracting the software archive or exporting it from revision
 control, and changing the current working directory to the newly extract tree,
