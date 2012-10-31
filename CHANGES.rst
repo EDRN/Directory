@@ -1,6 +1,16 @@
 EDRN Directory Service — Changelog
 ==================================
 
+Release Notes - Early Detection of Cancer - Version EDRN Directory Service 1.0.1 - 2012-10-31 - BOO!
+
+** Bug
+    * [CA-967] - New EDRN Directory can't communicate via SSL
+    * [CA-994] - If DMCC web service is down, Apache DS immediately gives up; should try its own database
+    * [CA-995] - DMCC changed XML namespace of its web service
+    * [CA-1020] - dmccgroupsync script ignores chair, cochair, consultant; it adds only "member" to collaborative groups
+    * [CA-1022] - Preserve people manually added to groups
+
+
 Release Notes - Early Detection of Cancer - Version EDRN Directory Service 1.0.0 - 2012-06-18
 
 ** Bug
