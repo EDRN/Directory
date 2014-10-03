@@ -1,6 +1,13 @@
 EDRN Directory Service — Changelog
 ==================================
 
+Release Notes - Early Detection of Cancer - Version EDRN Directory Service 1.0.2 - 2014-10-03
+
+** Bug
+    * [CA-1246] - User ssrivastava cannot log into EDRN Portal
+    * [CA-1287] - Ontology 1.8 SOAP update breaks "pwdVerification" SOAP API call
+
+
 Release Notes - Early Detection of Cancer - Version EDRN Directory Service 1.0.1 - 2012-10-31 - BOO!
 
 ** Bug
