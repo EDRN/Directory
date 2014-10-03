@@ -62,7 +62,7 @@ do the following:
     You can edit the other sections, if necessary, however the defaults should
     be just fine for cancer.jpl.nasa.gov.
 
-2.  Bootstrap by running: ``python2.6 bootstrap.py -dc ops.cfg``
+2.  Bootstrap by running: ``python bootstrap.py -c ops.cfg`` (use 2.6 or 2.7)
 
 3.  Build out by running: ``bin/buildout -c ops.cfg``
 
@@ -101,7 +101,7 @@ Development
 Since the EDRN Directory Service is deployed as a Buildout_, you can use it to
 develop and test the Python_ components that go into it.  To do so, run::
 
-    python2.6 bootstrap.py -c dev.cfg
+    python bootstrap.py -c dev.cfg
     bin/buildout -c dev.cfg
 
 This will put your buildout into "development mode", which gives you Apache DS
@@ -119,6 +119,13 @@ Finally, you can use the ``bin/develop`` command to check out and work on the
 Python components.  See http://pypi.python.org/pypi/mr.developer/ for more
 details.
 
+
+Testing Deployment
+------------------
+
+The host tumor.jpl.nasa.gov is the EDRN Informatics Center's test environment.
+To deploy the EDRN Directory Service there, use the operational steps above, but
+substitute ``ops.cfg`` with ``test.cfg``.
 
 
 .. References:
