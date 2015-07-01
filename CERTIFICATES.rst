@@ -39,7 +39,7 @@ following:
 
         openssl pkcs12 -export -in edrn.crt -inkey edrn.key -out edrn.p12 \
         -name cancer -passout pass:KEYPASS -passin pass:KEYPASS \
-        -certfile ca/intermediate.crt -caname intermediate -CApath . -chain
+        -certfile intermediate.crt -caname intermediate -CApath . -chain
 
 15. Convert the PKCS12 keystore into a JKS keystore::
 
