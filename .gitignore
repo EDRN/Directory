@@ -1,0 +1,9 @@
+develop-eggs
+src
+var
+parts
+.*.cfg
+bin
+._*
+.DS_Store
+*.sublime-workspace
