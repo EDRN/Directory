@@ -1,6 +1,13 @@
 EDRN Directory Service — Changelog
 ==================================
 
+
+Release Notes - Early Detection of Cancer - Version EDRN Directory Service 1.0.3 - 2015-09-09
+
+** Improvement
+    * [CA-1310] - Upgrade ApacheDS to 2.0.0-M19
+
+
 Release Notes - Early Detection of Cancer - Version EDRN Directory Service 1.0.2 - 2014-10-03
 
 ** Bug
