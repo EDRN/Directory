@@ -2,6 +2,12 @@ EDRN Directory Service — Changelog
 ==================================
 
 
+Release Notes - Early Detection of Cancer - Version EDRN Directory Service 1.0.4 - 2015-10-06
+
+** Improvement
+    * [CA-1311] - EDRN Directory Service uses weak ciphers
+
+
 Release Notes - Early Detection of Cancer - Version EDRN Directory Service 1.0.3 - 2015-09-09
 
 ** Improvement
