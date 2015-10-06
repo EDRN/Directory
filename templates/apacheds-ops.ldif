@@ -89,6 +89,7 @@ objectclass: ads-base
 objectClass: ads-authenticator
 objectClass: ads-authenticatorImpl
 ads-authenticatorClass: org.apache.directory.server.core.authn.AnonymousAuthenticator
+ads-baseDn:
 ads-enabled: TRUE
 
 dn: ads-authenticatorid=simpleauthenticator,ou=authenticators,ads-interceptorId=authenticationInterceptor,ou=interceptors,ads-directoryServiceId=default,ou=config
@@ -98,6 +99,7 @@ objectclass: ads-base
 objectClass: ads-authenticator
 objectClass: ads-authenticatorImpl
 ads-authenticatorClass: org.apache.directory.server.core.authn.SimpleAuthenticator
+ads-baseDn:
 ads-enabled: TRUE
 
 dn: ads-authenticatorid=strongauthenticator,ou=authenticators,ads-interceptorId=authenticationInterceptor,ou=interceptors,ads-directoryServiceId=default,ou=config
@@ -107,7 +109,18 @@ objectclass: ads-base
 objectClass: ads-authenticator
 objectClass: ads-authenticatorImpl
 ads-authenticatorClass: org.apache.directory.server.core.authn.StrongAuthenticator
+ads-baseDn:
 ads-enabled: TRUE
+
+dn: ads-authenticatorid=delegatingauthenticator,ou=authenticators,ads-interceptorId=authenticationInterceptor,ou=interceptors,ads-directoryServiceId=default,ou=config
+ads-authenticatorid: delegatingauthenticator
+objectclass: top
+objectclass: ads-base
+objectClass: ads-authenticator
+objectClass: ads-authenticatorImpl
+ads-authenticatorClass: org.apache.directory.server.core.authn.DelegatingAuthenticator
+ads-baseDn: 
+ads-enabled: FALSE
 
 dn: ou=passwordPolicies,ads-interceptorId=authenticationInterceptor,ou=interceptors,ads-directoryServiceId=default,ou=config
 objectClass: organizationalUnit
@@ -423,6 +436,8 @@ ads-searchBaseDN: ou=users,ou=system
 ads-replEnabled: true
 ads-replPingerSleep: 5
 ads-enabled: TRUE
+ads-certificatePassword: ${passwords:ldap-certificate-password}
+ads-keystoreFile: ${:keystore}
 
 dn: ou=replConsumers,ads-serverId=ldapServer,ou=servers,ads-directoryServiceId=default,ou=config
 objectClass: organizationalUnit
@@ -450,6 +465,34 @@ ads-systemport: ${ports:ldaps}
 ads-transportenablessl: TRUE
 ads-transportaddress: ${interfaces:ldaps}
 ads-transportid: ldaps
+ads-enabledciphers: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305
+ads-enabledciphers: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305
+ads-enabledciphers: TLS_ECDHE_ECDSA_WITH_CHACHA20_SHA
+ads-enabledciphers: TLS_ECDHE_RSA_WITH_CHACHA20_SHA
+ads-enabledciphers: TLS_DHE_RSA_WITH_CHACHA20_POLY1305
+ads-enabledciphers: TLS_RSA_WITH_CHACHA20_POLY1305
+ads-enabledciphers: TLS_DHE_RSA_WITH_CHACHA20_SHA
+ads-enabledciphers: TLS_RSA_WITH_CHACHA20_SHA
+ads-enabledciphers: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+ads-enabledciphers: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+ads-enabledciphers: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+ads-enabledciphers: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+ads-enabledciphers: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+ads-enabledciphers: TLS_DHE_DSS_WITH_AES_256_GCM_SHA384
+ads-enabledciphers: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+ads-enabledciphers: TLS_DHE_DSS_WITH_AES_128_GCM_SHA256
+ads-enabledciphers: TLS_DHE_RSA_WITH_AES_256_CBC_SHA384
+ads-enabledciphers: TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+ads-enabledciphers: TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+ads-enabledciphers: TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+ads-enabledciphers: TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA
+ads-enabledciphers: TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+ads-enabledciphers: SSL_DH_RSA_WITH_3DES_EDE_CBC_SHA
+ads-enabledciphers: SSL_DH_DSS_WITH_3DES_EDE_CBC_SHA
+ads-enabledciphers: TLS_RSA_WITH_AES_256_CBC_SHA256
+ads-enabledciphers: TLS_RSA_WITH_AES_256_CBC_SHA
+ads-enabledciphers: TLS_RSA_WITH_AES_128_CBC_SHA256
+ads-enabledciphers: TLS_RSA_WITH_AES_128_CBC_SHA
 objectclass: ads-transport
 objectclass: ads-tcpTransport
 objectClass: ads-base
@@ -562,6 +605,7 @@ objectClass: ads-base
 objectclass: ads-partition
 objectclass: ads-jdbmPartition
 ads-partitionSuffix: dc=edrn,dc=jpl,dc=nasa,dc=gov
+ads-contextentry:: ZG46IGRjPWVkcm4sZGM9anBsLGRjPW5hc2EsZGM9Z292Cm9iamVjdENsYXNzOiBleHRlbnNpYmxlT2JqZWN0Cm9iamVjdENsYXNzOiBkb21haW4Kb2JqZWN0Q2xhc3M6IHRvcApkYzogZWRybgo=
 ads-jdbmpartitionoptimizerenabled: TRUE
 ads-partitioncachesize: 100
 ads-partitionsynconwrite: TRUE
@@ -675,6 +719,16 @@ ads-enabled: TRUE
 
 dn: ads-indexAttributeId=uid,ou=indexes,ads-partitionId=edrn,ou=partitions,ads-directoryServiceId=default,ou=config
 ads-indexattributeid: uid
+ads-indexHasReverse: FALSE
+ads-indexcachesize: 100
+objectclass: ads-index
+objectclass: ads-jdbmIndex
+objectclass: ads-base
+objectclass: top
+ads-enabled: TRUE
+
+dn: ads-indexAttributeId=administrativeRole,ou=indexes,ads-partitionId=example,ou=partitions,ads-directoryServiceId=default,ou=config
+ads-indexattributeid: administrativeRole
 ads-indexHasReverse: FALSE
 ads-indexcachesize: 100
 objectclass: ads-index
