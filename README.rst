@@ -46,9 +46,17 @@ the following::
         -b dc=edrn,dc=jpl,dc=nasa,dc=gov -s sub '(objectClass=*)' > dump.ldif
 
 When prompted, provide the password to ``uid=admin,ou=system``.  Save the
-``dump.ldif`` file to a convenient location.  *Important:* if the entry for
-the dn "dc=edrn,dc=jpl,dc=nasa,dc=gov" isn't at the top of the file, find it
-and move it up top!
+``dump.ldif`` file to a convenient location.
+
+*Important:* Edit dump.ldif and find the entry for dn 
+"dc=edrn,dc=jpl,dc=nasa,dc=gov" and delete it!
+
+Next, ensure the Java installation has disabled weak ciphers.  To do so,
+edit $JAVA_HOME/jre/lib/security/java.security and find the property setting
+for ``jdk.tls.disabledAlgorithms``.  Comment out (or just delete) the line,
+and add the following line::
+
+    jdk.tls.disabledAlgorithms=MD5, SHA1, DSA, RSA keySize < 2048, NULL
 
 Next, after extracting the software archive or exporting it from revision
 control, and changing the current working directory to the newly extract tree,
@@ -66,23 +74,25 @@ do the following:
 
 3.  Build out by running: ``bin/buildout -c ops.cfg``
 
-4.  Shut down the incarnation of the service about to be replaced.
+4.  Install the ``cancer.ks`` keystore in the ``etc/certs`` directory.
 
-5.  Run the following commands (as root)::
+5.  Shut down the incarnation of the service about to be replaced.
+
+6.  Run the following commands (as root)::
 
         install -o root -g root -m 755 bin/edrndir /etc/init.d
         install -o root -g root -m 755 bin/cron.daily /etc/cron.daily/edrndir
         chkconfig --add edrndir
 
-6.  Start the service by running: ``/etc/init.d/edrndir start``
+7.  Start the service by running: ``/etc/init.d/edrndir start``
 
-7.  Wait a few moments for the server to start up, then run the following
+8.  Wait a few moments for the server to start up, then run the following
     commands::
 
         bin/buildout -c ops.cfg install apacheds-admin
         bin/buildout -c ops.cfg install schema
 
-8.  Prime the server with data dumped from the previous incarnation::
+9.  Prime the server with data dumped from the previous incarnation::
 
         ldapadd -x -W -D uid=admin,ou=system -H ldap://localhost -f dump.ldif
     
@@ -90,7 +100,7 @@ do the following:
     prompted, enter the password for the system-dn (set in the ``ops.cfg``
     file).
 
-9.  Protect the ops.cfg file: ``chmod 600 ops.cfg``.
+10. Protect the ops.cfg file: ``chmod 600 ops.cfg``.
 
 That's it!  Have a refreshing beverage.
 
