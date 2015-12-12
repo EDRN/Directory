@@ -94,6 +94,7 @@ java = /usr/java/default/bin/java
 #
 # Bring it all together.
 [buildout]
+extensions += mr.developer
 update-versions-file = ${buildout:directory}/var/testing-versions.cfg
 extends =
     etc/base.cfg
