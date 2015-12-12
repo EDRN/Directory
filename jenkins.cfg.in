@@ -7,9 +7,30 @@
 # Copyright 2015 California Institute of Technology. ALL RIGHTS
 # RESERVED. U.S. Government Sponsorship acknowledged.
 
+
+# Sigh
+# ----
+#
+# Sometimes buildout confuses the fel out of me.
 [versions]
 setuptools  = 18.7.1
 zc.buildout = 2.5.0
+
+
+# Cronjobs
+# --------
+#
+# In development we don't have access to root.
+[crontab-sync]
+recipe = z3c.recipe.usercrontab
+times = 0 3 * * *
+command = ${buildout:directory}/bin/cron.daily
+comment = Synchronize users and groups from the DMCC
+[crontab-start]
+recipe = z3c.recipe.usercrontab
+times = @reboot
+command = ${buildout:directory}/bin/supervisord
+comment = Start the EDRN Directory Service
 
 
 # Passwords
