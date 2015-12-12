@@ -24,12 +24,12 @@ zc.buildout = 2.5.0
 [crontab-sync]
 recipe = z3c.recipe.usercrontab
 times = 0 3 * * *
-command = ${buildout:directory}/bin/cron.daily
+command = ${buildout:bin-directory}/cron.daily
 comment = Synchronize users and groups from the DMCC
 [crontab-start]
 recipe = z3c.recipe.usercrontab
 times = @reboot
-command = ${buildout:directory}/bin/supervisord
+command = ${buildout:bin-directory}/supervisord
 comment = Start the EDRN Directory Service
 
 
@@ -87,6 +87,7 @@ keystore = /usr/local/edrn/etc/security/certs/edrn-dev.jpl.nasa.gov.ks
 # On cancer.jpl.nasa.gov, Java is in a weird location.
 [paths]
 java = /usr/java/default/bin/java
+ldap-home = /usr/local/openldap
 
 
 # Buildout
