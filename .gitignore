@@ -7,3 +7,4 @@ bin
 ._*
 .DS_Store
 *.sublime-workspace
+jenkins.cfg
