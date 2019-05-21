@@ -458,45 +458,6 @@ objectClass: ads-base
 objectclass: top
 ads-enabled: TRUE
 
-# dn: ads-transportid=ldaps,ou=transports,ads-serverId=ldapServer,ou=servers,ads-directoryServiceId=default,ou=config
-# ads-systemport: ${ports:ldaps}
-# ads-transportenablessl: TRUE
-# ads-transportaddress: ${interfaces:ldaps}
-# ads-transportid: ldaps
-# ads-enabledciphers: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305
-# ads-enabledciphers: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305
-# ads-enabledciphers: TLS_ECDHE_ECDSA_WITH_CHACHA20_SHA
-# ads-enabledciphers: TLS_ECDHE_RSA_WITH_CHACHA20_SHA
-# ads-enabledciphers: TLS_DHE_RSA_WITH_CHACHA20_POLY1305
-# ads-enabledciphers: TLS_RSA_WITH_CHACHA20_POLY1305
-# ads-enabledciphers: TLS_DHE_RSA_WITH_CHACHA20_SHA
-# ads-enabledciphers: TLS_RSA_WITH_CHACHA20_SHA
-# ads-enabledciphers: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-# ads-enabledciphers: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-# ads-enabledciphers: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-# ads-enabledciphers: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-# ads-enabledciphers: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-# ads-enabledciphers: TLS_DHE_DSS_WITH_AES_256_GCM_SHA384
-# ads-enabledciphers: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-# ads-enabledciphers: TLS_DHE_DSS_WITH_AES_128_GCM_SHA256
-# ads-enabledciphers: TLS_DHE_RSA_WITH_AES_256_CBC_SHA384
-# ads-enabledciphers: TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
-# ads-enabledciphers: TLS_DHE_RSA_WITH_AES_128_CBC_SHA
-# ads-enabledciphers: TLS_DHE_DSS_WITH_AES_128_CBC_SHA
-# ads-enabledciphers: TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA
-# ads-enabledciphers: TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
-# ads-enabledciphers: SSL_DH_RSA_WITH_3DES_EDE_CBC_SHA
-# ads-enabledciphers: SSL_DH_DSS_WITH_3DES_EDE_CBC_SHA
-# ads-enabledciphers: TLS_RSA_WITH_AES_256_CBC_SHA256
-# ads-enabledciphers: TLS_RSA_WITH_AES_256_CBC_SHA
-# ads-enabledciphers: TLS_RSA_WITH_AES_128_CBC_SHA256
-# ads-enabledciphers: TLS_RSA_WITH_AES_128_CBC_SHA
-# objectclass: ads-transport
-# objectclass: ads-tcpTransport
-# objectClass: ads-base
-# objectclass: top
-# ads-enabled: TRUE
-
 dn: ou=extendedOpHandlers,ads-serverId=ldapServer,ou=servers,ads-directoryServiceId=default,ou=config
 ou: extendedOpHandlers
 objectclass: organizationalUnit
